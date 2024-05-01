@@ -6,15 +6,17 @@ public class Employeur extends Utilisateur{
     String nomEntreprise;
     String addresseEntreprise;
     int nbrEmployes;
+    String site;
 
     public Employeur() {
 
     }
-    public Employeur(int id, String email, String motPass, String nom, String position, int gsm, String nomEntreprise, String addresseEntreprise, int nbrEmployes) {
+    public Employeur(int id, String email, String motPass, String nom, String position, int gsm, String nomEntreprise, String addresseEntreprise, int nbrEmployes, String site) {
         super(id, email, motPass, nom, position, gsm);
         this.nomEntreprise = nomEntreprise;
         this.addresseEntreprise = addresseEntreprise;
         this.nbrEmployes = nbrEmployes;
+        this.site = site;
     }
 
     public String getNomEntreprise() {
@@ -39,5 +41,13 @@ public class Employeur extends Utilisateur{
 
     public void setNbrEmployes(int nbrEmployes) {
         this.nbrEmployes = nbrEmployes;
+    }
+
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
     }
 }

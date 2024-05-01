@@ -1,21 +1,21 @@
 package ma.ac.iga.pfemoteurrechercheemploi.entities;
 
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Experience {
     int id;
     String titre;
     String employeur;
     String description;
-    LocalDate debut;
-    LocalDate fin;
+    Date debut;
+    Date fin;
 
     public Experience() {
 
     }
 
-    public Experience(int id, String titre, String employeur, String description, LocalDate debut, LocalDate fin) {
+    public Experience(int id, String titre, String employeur, String description, Date debut, Date fin) {
         this.id = id;
         this.titre = titre;
         this.employeur = employeur;
@@ -56,19 +56,19 @@ public class Experience {
         this.description = description;
     }
 
-    public LocalDate getDebut() {
+    public Date getDebut() {
         return debut;
     }
 
-    public void setDebut(LocalDate debut) {
+    public void setDebut(Date debut) {
         this.debut = debut;
     }
 
-    public LocalDate getFin() {
+    public Date getFin() {
         return fin;
     }
 
-    public void setFin(LocalDate fin) {
+    public void setFin(Date fin) {
         this.fin = fin;
     }
 }
