@@ -5,11 +5,12 @@ package ma.ac.iga.pfemoteurrechercheemploi.entities; /**************************
  ***********************************************************************/
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name="candidats")
-public class Candidats {
+public class Candidats implements Serializable {
    @Id
    @GeneratedValue(strategy=GenerationType.IDENTITY)
    private int idCandidat;

@@ -5,19 +5,20 @@ package ma.ac.iga.pfemoteurrechercheemploi.entities; /**************************
  ***********************************************************************/
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name="demande")
-public class Demande {
+public class Demande implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
    private int idDemande;
    private Date dateDemande;
    private int statutDemande;
 
-   @Embedded
-   private DemandeCle demandeCle;
+   //@Embedded
+   //private DemandeCle demandeCle;
 
    @ManyToOne
    @JoinColumn(name="idCandidat")

@@ -5,11 +5,12 @@ package ma.ac.iga.pfemoteurrechercheemploi.entities; /**************************
  ***********************************************************************/
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name="produit")
-public class Diplomes {
+public class Diplomes implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
    private int idDiplome;

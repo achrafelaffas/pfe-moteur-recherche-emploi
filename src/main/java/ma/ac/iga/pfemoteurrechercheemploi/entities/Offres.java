@@ -5,10 +5,11 @@
  ***********************************************************************/
 package ma.ac.iga.pfemoteurrechercheemploi.entities;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 @Entity
 @Table(name="offres")
-public class Offres {
+public class Offres implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
    private int idOffre;
@@ -22,6 +23,9 @@ public class Offres {
 
    @ManyToOne
    private Entreprise entreprise;
+
+   @ManyToOne
+   private Categorie categorie;
 
    @OneToMany(cascade= CascadeType.ALL,mappedBy="offre")
    private List<Demande> demandes;
