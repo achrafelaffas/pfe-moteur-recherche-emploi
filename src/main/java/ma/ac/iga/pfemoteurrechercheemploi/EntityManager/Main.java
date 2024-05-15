@@ -1,4 +1,4 @@
-package ma.ac.iga.pfemoteurrechercheemploi.EntityManagers;
+package ma.ac.iga.pfemoteurrechercheemploi.EntityManager;
 
 
 import ma.ac.iga.pfemoteurrechercheemploi.entities.Candidats;
@@ -12,11 +12,10 @@ public class Main {
         public static void main(String[] args) {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("Recherche");
             EntityManager em = emf.createEntityManager();
-            Candidats p=new Candidats();
+            Candidats p =new Candidats();
             p.setNom("achraf");
-            em.persist(p);
-
             em.getTransaction().begin();
+            em.persist(p);
             em.getTransaction().commit();
             em.close();
             emf.close();

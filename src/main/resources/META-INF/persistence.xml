@@ -16,9 +16,9 @@
 
 
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/recherche_emplois"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/projetjee"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.password" value="1341"/>
             <property name="javax.persistence.jdbc.Driver" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
