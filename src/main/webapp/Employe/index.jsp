@@ -5,7 +5,8 @@
     <title>Home | JobPorter</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/user-styles.css">
+    <link rel="stylesheet" href="../css/user-styles.css">
+    <link rel="stylesheet" href="/css/employe-styles.css">
 </head>
 <body>
 
@@ -22,7 +23,13 @@
                     <a class="nav-link" href="index.jsp">Acceuil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Jobs</a>
+                    <a class="nav-link" href="#">Postuler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><ion-icon name="person-sharp"></ion-icon></a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -35,53 +42,66 @@
 
 <section class="hero-section">
     <div class="hero-content">
-        <h1 class="display-4">Trouvez L'emploi ou le Talent de vos Rêves</h1>
-        <p class="lead">Que vous soyez à la recherche d'un emploi ou de talents, nous vous guiderons en toute
-            simplicité</p>
+        <h1 class="display-4">Vous êtes à la recherhce d'un Job?</h1>
+        <p class="lead">Accédez à des milliers d'offres d'emploi dans divers secteurs et trouvez le
+            poste idéal.</p>
         <a href="#more-info" class="btn btn-primary btn-lg">Commencer</a>
     </div>
 </section>
 
-
 <section class="services-section bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2>Nos Services</h2>
-                <p class="lead">Nous offrons une gamme de services pour vous aider à trouver les meilleurs talents et opportunités d'emploi.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="container">
+                        <h1>Offre 1</h1>
+                        <h2>Nom de l'entreprise</h2>
+                        <p>Description de l'offre</p>
+                        <a href="#" class="btn btn-lg btn-primary">
+                            En savoir plus
+                        </a>
                     </div>
-                    <h3>Recherche d'Emploi</h3>
-                    <p>Accédez à des milliers d'offres d'emploi dans divers secteurs et trouvez le poste idéal.</p>
-                    <a href="#" class="btn btn-primary">Trouvez un Emploi</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <h1>Offre 2</h1>
+                        <h2>Nom de l'entreprise</h2>
+                        <p>Description de l'offre</p>
+                        <a href="#" class="btn btn-lg btn-primary">
+                            En savoir plus
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <h1>Offre 3</h1>
+                        <h2>Nom de l'entreprise</h2>
+                        <p>Description de l'offre</p>
+                        <a href="#" class="btn btn-lg btn-primary">
+                            En savoir plus
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <h1>Offre 4</h1>
+                        <h2>Nom de l'entreprise</h2>
+                        <p>Description de l'offre</p>
+                        <a href="#" class="btn btn-lg btn-primary">
+                            En savoir plus
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Recherche de Talents</h3>
-                    <p>Trouvez les meilleurs candidats pour votre entreprise grâce à notre vaste base de données de talents.</p>
-                    <a href="#" class="btn btn-primary">Chercher des Talents</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Support et Conseils</h3>
-                    <p>Profitez de notre support et de nos conseils pour optimiser vos recherches et candidatures.</p>
-                    <a href="#" class="btn btn-primary">Contactez-nous</a>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </section>
@@ -132,5 +152,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
