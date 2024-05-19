@@ -13,7 +13,7 @@ import java.util.*;
 public class Candidats implements Serializable {
    @Id
    @GeneratedValue(strategy=GenerationType.IDENTITY)
-   private int idCandidat;
+   private Long idCandidat;
    private String nom;
    private String prenom;
    private String email;
@@ -42,11 +42,11 @@ public class Candidats implements Serializable {
    public Candidats() {
    }
 
-   public int getIdCandidat() {
+   public Long getIdCandidat() {
       return idCandidat;
    }
 
-   public void setIdCandidat(int idCandidat) {
+   public void setIdCandidat(Long idCandidat) {
       this.idCandidat = idCandidat;
    }
 

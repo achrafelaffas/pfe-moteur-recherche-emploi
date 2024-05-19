@@ -8,26 +8,26 @@ import java.io.Serializable;
 public class DemandeCle implements Serializable {
 
     @Column(name="idCandidat")
-    private int idCandidat;
+    private Long idCandidat;
     @Column(name="idOffre")
-    private int idOffre;
+    private Long idOffre;
 
     public DemandeCle() {
     }
 
-    public int getIdCandidat() {
+    public Long getIdCandidat() {
         return idCandidat;
     }
 
-    public void setIdCandidat(int idCandidat) {
+    public void setIdCandidat(Long idCandidat) {
         this.idCandidat = idCandidat;
     }
 
-    public int getIdOffre() {
+    public Long getIdOffre() {
         return idOffre;
     }
 
-    public void setIdOffre(int idOffre) {
+    public void setIdOffre(Long idOffre) {
         this.idOffre = idOffre;
     }
 }

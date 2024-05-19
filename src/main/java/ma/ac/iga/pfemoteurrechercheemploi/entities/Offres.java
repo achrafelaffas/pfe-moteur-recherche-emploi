@@ -12,12 +12,17 @@ import java.util.*;
 public class Offres implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
-   private int idOffre;
+   private Long idOffre;
+
+   private String nomOffre;
    private String description;
    private String specialite;
    private String mission;
    private String villeTravail;
-   private String salaire;
+
+
+
+   private double salaire;
    private int nbRecruter;
    private int anneeExperience;
 
@@ -33,12 +38,28 @@ public class Offres implements Serializable {
    public Offres() {
    }
 
-   public int getIdOffre() {
+   public Categorie getCategorie() {
+      return categorie;
+   }
+
+   public void setCategorie(Categorie categorie) {
+      this.categorie = categorie;
+   }
+
+   public Long getIdOffre() {
       return idOffre;
    }
 
-   public void setIdOffre(int idOffre) {
+   public void setIdOffre(Long idOffre) {
       this.idOffre = idOffre;
+   }
+
+   public String getNomOffre() {
+      return nomOffre;
+   }
+
+   public void setNomOffre(String nomOffre) {
+      this.nomOffre = nomOffre;
    }
 
    public String getDescription() {
@@ -73,11 +94,11 @@ public class Offres implements Serializable {
       this.villeTravail = villeTravail;
    }
 
-   public String getSalaire() {
+   public Double getSalaire() {
       return salaire;
    }
 
-   public void setSalaire(String salaire) {
+   public void setSalaire(Double salaire) {
       this.salaire = salaire;
    }
 

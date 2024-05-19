@@ -13,7 +13,7 @@ import java.util.*;
 public class Experience implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
-   private int idExperience;
+   private Long idExperience;
    private String nomSociete;
    private String description;
    private int annee;
@@ -26,11 +26,11 @@ public class Experience implements Serializable {
    public Experience() {
    }
 
-   public int getIdExperience() {
+   public Long getIdExperience() {
       return idExperience;
    }
 
-   public void setIdExperience(int idExperience) {
+   public void setIdExperience(Long idExperience) {
       this.idExperience = idExperience;
    }
 

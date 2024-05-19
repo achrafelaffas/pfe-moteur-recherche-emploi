@@ -10,7 +10,7 @@ public class Categorie implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int idCat;
+    private Long idCat;
     private  String nomCat;
 
     @OneToMany(cascade= CascadeType.ALL,mappedBy="categorie")
@@ -23,11 +23,11 @@ public class Categorie implements Serializable {
     public Categorie() {
     }
 
-    public int getIdCat() {
+    public Long getIdCat() {
         return idCat;
     }
 
-    public void setIdCat(int idCat) {
+    public void setIdCat(Long idCat) {
         this.idCat = idCat;
     }
 

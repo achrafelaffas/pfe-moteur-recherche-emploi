@@ -1,0 +1,531 @@
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="ma.ac.iga.pfemoteurrechercheemploi.entities.Offres" %>
+<%@ page import="ma.ac.iga.pfemoteurrechercheemploi.entities.Categorie" %>
+<%@ page import="java.util.List" %><%--
+  Created by IntelliJ IDEA.
+  User: Charaf
+  Date: 18/05/2024
+  Time: 11:00
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Tables</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <%@ include file="sidbar.html" %>
+
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <form class="form-inline">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </form>
+
+                <!-- Topbar Search -->
+                <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                               aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                             aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small"
+                                           placeholder="Search for..." aria-label="Search"
+                                           aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">3+</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-primary">
+                                        <i class="fas fa-file-alt text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-success">
+                                        <i class="fas fa-donate text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    $290.29 has been deposited into your account!
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-warning">
+                                        <i class="fas fa-exclamation-triangle text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    Spending Alert: We've noticed unusually high spending for your account.
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Messages -->
+
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <img class="img-profile rounded-circle"
+                                 src="img/undraw_profile.svg">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Activity Log
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between">
+                        <div ><h6 class="m-0 font-weight-bold text-primary">Liste des Offres</h6></div >
+                        <div><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Ajouter Offre</button></div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>IdOffre</th>
+                                    <th>Nom Offre</th>
+                                    <th>description</th>
+                                    <th>Specialite</th>
+                                    <th>Mission</th>
+                                    <th>Categorie</th>
+                                    <th>NB AnneesExperience</th>
+                                    <th>NB Recruter</th>
+                                    <th>ville Travail</th>
+                                    <th>Salaire</th>
+                                    <th>Modifier</th>
+                                    <th>Supprimer</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>IdOffre</th>
+                                    <th>Nom Offre</th>
+                                    <th>Description</th>
+                                    <th>Specialite</th>
+                                    <th>Mission</th>
+                                    <th>Categorie</th>
+                                    <th>NB AnneesExperience</th>
+                                    <th>NB Recruter</th>
+                                    <th>ville Travail</th>
+                                    <th>Salaire</th>
+                                    <th>Modifier</th>
+                                    <th>Supprimer</th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+
+                                <%
+                                    ArrayList<Offres> std =
+                                            (ArrayList<Offres>)request.getAttribute("offres");
+                                    for(Offres s:std){%>
+                                <%-- Arranging data in tabular form
+                                --%>
+                                <tr>
+                                    <td><%=s.getIdOffre()%></td>
+                                    <td><%=s.getNomOffre()%></td>
+                                    <td><%=s.getDescription()%></td>
+                                    <td><%=s.getSpecialite()%></td>
+                                    <td><%=s.getMission()%></td>
+                                    <td><%=s.getCategorie().getNomCat()%></td>
+                                    <td><%=s.getAnneeExperience()%></td>
+                                    <td><%=s.getNbRecruter()%></td>
+                                    <td><%=s.getVilleTravail()%></td>
+                                    <td><%=s.getSalaire()%></td>
+                                    <td>
+                                        <button onclick="updateFunction(<%=s.getIdOffre()%>,'<%=s.getNomOffre()%>','<%=s.getDescription()%>','<%=s.getSpecialite()%>','<%=s.getMission()%>','<%=s.getCategorie().getIdCat()%>',<%=s.getAnneeExperience()%>,<%=s.getNbRecruter()%>,'<%=s.getVilleTravail()%>',<%=s.getSalaire()%>)"><i class="bi bi-pencil"></i></button>
+                                    </td>
+                                    <td>
+                                        <a href="OffreServlet?action=delete&id=<%=s.getIdOffre()%>"><button><i class="bi bi-trash"></i></button></a>
+                                    </td>
+                                </tr>
+                                <%}%>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>
+
+<script>
+    function updateFunction(id,nomOffre ,description,specialite,mission,Idcat,annExp,NBRcrut,ville,salaire){
+        document.getElementById("idOffUpdate").value = id;
+        document.getElementById("nomUpdate").value = nomOffre;
+        document.getElementById("DescriptionUpdate").value = description;
+        document.getElementById("SpecialiteUpdate").value =specialite ;
+        document.getElementById("MissionUpdate").value =mission ;
+        document.getElementById("CategorieUpdate").value =Idcat ;
+        document.getElementById("nbAnExpUpdate").value = annExp ;
+        document.getElementById("NbRecUpdate").value =NBRcrut ;
+        document.getElementById("villeUpdate").value =ville ;
+        document.getElementById("SalaireUpdate").value =salaire ;
+
+
+        var modal = new bootstrap.Modal(document.getElementById('exampleModalUpdate'));
+        modal.show();
+    }
+
+</script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter Offre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <%-- <span aria-hidden="true">&times;</span>--%>
+                </button>
+            </div>
+            <form method="post" action="OffreServlet?action=save">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <label for="nom" class="col-form-label">Nom Offre:</label>
+                            <input type="text" class="form-control" id="nom" name="nom" required>
+                        </div>
+
+                        <div class="col">
+                            <label for="Specialite" class="col-form-label">Specialite:</label>
+                            <input type="text" class="form-control" id="Specialite" name="Specialite" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="Categorie" class="col-form-label">Categorie:</label>
+                            <select class="form-control" id="Categorie" name="Categorie" required>
+                                <%
+                                    List<Categorie> categories = (List<Categorie>) request.getAttribute("categories");
+                                    for(Categorie categorie : categories) {
+                                %>
+                                <option value="<%= categorie.getIdCat() %>"><%= categorie.getNomCat() %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="nbAnExp" class="col-form-label">NB AnneesExperience:</label>
+                            <input type="text" class="form-control" id="nbAnExp" name="nbAnExp" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="NbRec" class="col-form-label">NB Recruter:</label>
+                            <input type="text" class="form-control" id="NbRec" name="NbRec" required>
+                        </div>
+                        <div class="col">
+                            <label for="ville" class="col-form-label">ville:</label>
+                            <input type="text" class="form-control" id="ville" name="ville" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="Salaire" class="col-form-label">Salaire:</label>
+                            <input type="text" class="form-control" id="Salaire" name="Salaire" required>
+                        </div>
+                        <div class="col">
+                            <label for="Mission" class="col-form-label">Mission:</label>
+                            <input type="text" class="form-control" id="Mission" name="Mission" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="col">
+                                <label for="Description" class="col-form-label">Description:</label>
+                                <input type="text" class="form-control" id="Description" name="Description" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- update modal -->
+
+<div class="modal fade" id="exampleModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabelUpdate">Modiier un Offre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <%-- <span aria-hidden="true">&times;</span>--%>
+                </button>
+            </div>
+            <form method="post" action="OffreServlet?action=update">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nomUpdate" class="col-form-label">Nom Offre:</label>
+                        <input type="text" class="form-control" id="nomUpdate" name="nom" required>
+                    </div>
+                </div>
+
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" id="idOffUpdate" name="id">
+
+                        <label for="Specialite" class="col-form-label">Specialite:</label>
+                        <input type="text" class="form-control" id="SpecialiteUpdate" name="Specialite" required>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Mission" class="col-form-label">Mission:</label>
+                        <input type="text" class="form-control" id="MissionUpdate" name="Mission" required>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="CategorieUpdate" class="col-form-label">Categorie:</label>
+                        <select class="form-control" id="CategorieUpdate" name="Categorie" required>
+                            <%
+                                List<Categorie> listcategories = (List<Categorie>) request.getAttribute("categories");
+                                for(Categorie categorie : listcategories) {
+                            %>
+                            <option value="<%= categorie.getIdCat() %>"><%= categorie.getNomCat() %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nbAnExp" class="col-form-label">NB AnneesExperience:</label>
+                        <input type="text" class="form-control" id="nbAnExpUpdate" name="nbAnExp" required>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="NbRec" class="col-form-label">NB Recruter:</label>
+                        <input type="text" class="form-control" id="NbRecUpdate" name="NbRec" required>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="ville" class="col-form-label">ville:</label>
+                        <input type="text" class="form-control" id="villeUpdate" name="ville" required>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Salaire" class="col-form-label">Salaire:</label>
+                        <input type="text" class="form-control" id="SalaireUpdate" name="Salaire" required>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Description" class="col-form-label">Description:</label>
+                        <input type="text" class="form-control" id="DescriptionUpdate" name="Description" required>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

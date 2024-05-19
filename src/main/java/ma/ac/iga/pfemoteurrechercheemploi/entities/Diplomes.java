@@ -13,7 +13,7 @@ import java.util.*;
 public class Diplomes implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
-   private int idDiplome;
+   private Long idDiplome;
    private String diplome;
    private String intitule;
    private Date anneeObtention;
@@ -26,11 +26,11 @@ public class Diplomes implements Serializable {
    public Diplomes() {
    }
 
-   public int getIdDiplome() {
+   public Long getIdDiplome() {
       return idDiplome;
    }
 
-   public void setIdDiplome(int idDiplome) {
+   public void setIdDiplome(Long idDiplome) {
       this.idDiplome = idDiplome;
    }
 

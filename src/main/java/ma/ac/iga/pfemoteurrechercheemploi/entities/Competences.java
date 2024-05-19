@@ -13,7 +13,7 @@ import java.util.*;
 public class Competences implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
-   private int idCompetence;
+   private Long idCompetence;
    private String competence;
    private String domaine;
    private String description;
@@ -24,11 +24,11 @@ public class Competences implements Serializable {
    public Competences() {
    }
 
-   public int getIdCompetence() {
+   public Long getIdCompetence() {
       return idCompetence;
    }
 
-   public void setIdCompetence(int idCompetence) {
+   public void setIdCompetence(Long idCompetence) {
       this.idCompetence = idCompetence;
    }
 

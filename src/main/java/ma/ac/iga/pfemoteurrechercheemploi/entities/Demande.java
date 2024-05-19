@@ -13,7 +13,7 @@ import java.util.*;
 public class Demande implements Serializable {
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)
-   private int idDemande;
+   private Long idDemande;
    private Date dateDemande;
    private int statutDemande;
 
@@ -32,11 +32,27 @@ public class Demande implements Serializable {
    public Demande() {
    }
 
-   public int getIdDemande() {
+   public Candidats getCandidat() {
+      return candidat;
+   }
+
+   public void setCandidat(Candidats candidat) {
+      this.candidat = candidat;
+   }
+
+   public Offres getOffre() {
+      return offre;
+   }
+
+   public void setOffre(Offres offre) {
+      this.offre = offre;
+   }
+
+   public Long getIdDemande() {
       return idDemande;
    }
 
-   public void setIdDemande(int idDemande) {
+   public void setIdDemande(Long idDemande) {
       this.idDemande = idDemande;
    }
 
