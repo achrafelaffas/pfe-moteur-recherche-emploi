@@ -1,0 +1,50 @@
+.hero-section {
+    position: relative;
+    background: url('../images/hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.services-section {
+    padding: 60px 0;
+}
+
+.service-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid #aaa;
+
+}
+
+.service-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
